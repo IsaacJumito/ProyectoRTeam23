@@ -1,22 +1,19 @@
 
-getwd()
-setwd("/cloud/project/SHINYAPPR")
-
 pData<-read.csv("match.data.csv")
 choiceV<- names(pData)
 
 ui<- fluidPage(
   dashboardPage(
-    dashboardHeader(title = "Postwork 8 - Isaac"),
+    dashboardHeader(title = "Postwork 8 - EQUIPO 23 ~ Isaac Moreno"),
     
     dashboardSidebar(
       
       sidebarMenu(
         
         menuItem("Data Table",tabName = "data_table", icon = icon("table")),
-        menuItem("Postwork 8", tabName = "img",icon = icon("fas fa-table")),
-        menuItem("Graficas de Barras", tabName = "Dashboard", icon = icon("fas fa-table")),
-        menuItem("Frecuencias Relativas", tabName = "FR", icon = icon("fas fa-table"))
+        menuItem("Postwork", tabName = "img",icon = icon("file-picture-o")),
+        menuItem("Graficas de Barras", tabName = "Dashboard", icon = icon("dashboard")),
+        menuItem("Frecuencias Relativas", tabName = "FR", icon = icon("file-picture-o"))
       )
     ),
     
@@ -38,13 +35,13 @@ ui<- fluidPage(
         ),
         tabItem(tabName = "Dashboard",
                 fluidRow(
-                  titlePanel(h3("Graficos de barras")),
+                  titlePanel(h3("GrÃ¡ficos de barras")),
                   selectInput("x","Seleccionar variable X",
                               choices = c(choiceV[3],choiceV[5])),
                   plotOutput("plot1", height = 400, width = 700)
                 )),
         tabItem(tabName = "FR",
-                titlePanel(h4("Graficos del codigo momios")),
+                titlePanel(h4("GrÃ¡ficos del cÃ³digo momios")),
                 img(src="MMS1.png", height=400, width=700),
                 img(src="MMS2.png", height=400, width=700))
       )
